@@ -1,0 +1,7 @@
+planning docs/
+dist/
+*.exe
+*.test
+.env
+.env.local
+devcheck
