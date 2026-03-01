@@ -26,7 +26,8 @@ func Build(stack detector.DetectedStack) []Check {
 		}
 	}
 	if stack.Docker {
-		// add Docker checks
+		cs = append(cs, &BinaryCheck{Binary: "docker"})
+		cs = append(cs, &DockerDaemonCheck{})
 	}
 	if stack.Postgres {
 		// add Postgres checks
