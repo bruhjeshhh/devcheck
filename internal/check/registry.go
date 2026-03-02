@@ -7,10 +7,12 @@ func Build(stack detector.DetectedStack) []Check {
 
 	if stack.Go {
 		cs = append(cs, &BinaryCheck{Binary: "go"})
+		cs = append(cs, &GoVersionCheck{Dir: "."})
 	}
 	if stack.Node {
 		cs = append(cs, &BinaryCheck{Binary: "node"})
 		cs = append(cs, &BinaryCheck{Binary: "npm"})
+		cs = append(cs, &NodeVersionCheck{Dir: "."})
 	}
 	if stack.Python {
 		cs = append(cs, &BinaryCheck{Binary: "python3"})
